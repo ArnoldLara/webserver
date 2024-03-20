@@ -14,20 +14,6 @@ type ContactDetails struct {
     Message string
 }
 
-type city1 struct {
-    name   string
-    lat string
-    long string
-    temp int
-}
-
-type city2 struct {
-    name   string
-    lat string
-    long string
-    temp int
-}
-
 
 func main() {
     tmpl := template.Must(template.ParseFiles("./static/index.html"))
