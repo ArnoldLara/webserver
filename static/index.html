@@ -1,16 +1,62 @@
 <!-- index.html -->
 {{if .Success}}
-    <h1>Thanks for your message {{.Email}}!</h1>
-
+    <h1>Las ciudades seleccionadas fueron {{.City1}} y {{.City2}}</h1>
+    <table class="default">
+        <tr>
+          <th scope="row">Ciudad</th>      
+          <th>Temperatura</th>      
+          <th>Presión Atm.</th>      
+          <th>Humedad</th>      
+        </tr>      
+        <tr>      
+          <th>{{.City1}}</th>      
+          <td>{{.TempC1}}°C</td>      
+          <td>{{.PressureC1}}</td>      
+          <td>{{.HumidityC1}}</td>      
+        </tr>      
+        <tr>      
+          <th>{{.City2}}</th>      
+          <td>{{.TempC2}}°C</td>      
+          <td>{{.PressureC1}}</td>      
+          <td>{{.HumidityC2}}</td>
+        </tr>      
+      </table>
 {{else}}
-    <h1>Contact</h1>
-    <form method="POST">
-        <label>Email:</label><br />
-        <input type="text" name="email"><br />
-        <label>Subject:</label><br />
-        <input type="text" name="subject"><br />
-        <label>Message:</label><br />
-        <textarea name="message"></textarea><br />
-        <input type="submit">
+<html>
+  <head>
+    <title>Temperatura</title>
+  </head>
+  <body>
+    <h2>Comparación de temperatura entre ciudades</h2>
+    <form id="Clima" method="POST">
+      <table id="tablaElegir">
+      <caption>Seleccione dos ciudades y pulse enviar.</caption>
+      <tbody><tr><td>
+        Ciudad 1
+      </td><td>
+        <select name="city1" id="CiudadesCol1">
+            <option value="Bogota">Bogotá</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Barcelona">Barcelona</option>
+            <option value="Francia">Francia</option>
+            <option value="Bruselas">Bruselas</option>
+            <option value="Holanda">Holanda</option>
+        </select>
+      </td></tr><tr><td>
+        Ciudad 2
+      </td><td>
+        <select name="city2" id="CiudadesCol2">
+            <option value="Bogota">Bogotá</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Barcelona">Barcelona</option>
+            <option value="Francia">Francia</option>
+            <option value="Bruselas">Bruselas</option>
+            <option value="Holanda">Holanda</option>
+        </select>
+      </td></tr><tr><td>
+        <button type="submit">Enviar</button>
+        </td></tr>
+      </tbody></table>
     </form>
+</html>
 {{end}}
