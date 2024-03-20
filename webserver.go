@@ -82,17 +82,15 @@ func get_weather(lat float64,lon float64)(Data){
         fmt.Print(err.Error())
         os.Exit(1)
     }
-
     responseData, err := ioutil.ReadAll(response.Body)
     if err != nil {
         log.Fatal(err)
     }
     fmt.Println(string(responseData))
-    
 
     var city Data
     json.Unmarshal(responseData, &city)
-
+    
     fmt.Println(city.Base)
 
     //fmt.Println(city.Value)
